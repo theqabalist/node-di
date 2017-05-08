@@ -16,12 +16,12 @@ describe("ImageAdapter", () => {
             }]
         }));
 
-        it("Reformats response into simple record.", () => {
-            adapter().should.eventually.deep.equal([{
-                id: ImageId,
-                name: "garbage"
-            }]);
-        });
+        it("Reformats response into simple record.", () =>
+          adapter().should.eventually.deep.equal([{
+              id: ImageId,
+              type: "garbage"
+          }])
+        );
     });
 
     context("Response is missing name of type.", () => {
@@ -33,21 +33,21 @@ describe("ImageAdapter", () => {
             }]
         }));
 
-        it("Reformats response into record, but with empty name.", () => {
+        it("Reformats response into record, but with empty name.", () =>
             adapter().should.eventually.deep.equal([{
                 id: ImageId,
-                name: ""
-            }]);
-        });
+                type: ""
+            }])
+        );
     });
 
     context("Fetch fails.", () => {
         const adapter = imageAdapter(() => Promise.reject(new Error("AWS DONE FUCKED")));
 
         it("Converts a random AWS error to a meaningful error.", () =>
-            adapter()
-                .catch(err => {
-                    err.name.should.equal("AWSCommunicationError");
-                }));
+            adapter().catch(err => {
+                err.name.should.equal("AWSCommunicationError");
+            })
+        );
     });
 });
