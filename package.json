@@ -5,9 +5,11 @@
   "author": "Brandon Keown <bkeown@blitz.io>",
   "description": "A simple helpful robot for your Company",
   "scripts": {
+    "coverage": "istanbul cover --include-all-sources --root lib _mocha -- --reporter nyan 'spec/**/*.spec.js'",
     "hubot": "hubot --adapter slack",
-    "test": "mocha --watch spec/**/*.spec.js --reporter min",
-    "coverage": "istanbul cover --include-all-sources --root lib _mocha -- --reporter nyan 'spec/**/*.spec.js'"
+    "lint": "eslint .",
+    "pre-commit-msg": "echo 'Pre-commit linting and unit testing' && exit 0",
+    "test": "mocha --watch spec/**/*.spec.js --reporter min"
   },
   "dependencies": {
     "ascii-table": "^0.0.9",
@@ -31,11 +33,14 @@
     "hubot-slack": "^4.3.4",
     "istanbul": "^0.4.5",
     "mocha": "^3.3.0",
+    "pre-commit": "^1.2.2",
     "ramda": "^0.23.0",
     "sinon": "^2.2.0",
     "verror": "^1.10.0"
   },
-  "engines": {
-    "node": "0.10.x"
-  }
+  "pre-commit": [
+    "pre-commit-msg",
+    "lint",
+    "test"
+  ]
 }
