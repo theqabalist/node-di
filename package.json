@@ -9,8 +9,8 @@
     "hubot": "hubot --adapter slack",
     "lint": "eslint .",
     "pre-commit-msg": "echo 'Pre-commit linting and unit testing' && exit 0",
-    "test": "mocha spec/**/*.spec.js --reporter min",
-    "test-watch": "mocha --watch spec/**/*.spec.js --reporter min"
+    "pre-commit-test": "mocha spec/**/*.spec.js",
+    "test": "mocha --watch spec/**/*.spec.js --reporter min"
   },
   "dependencies": {
     "ascii-table": "^0.0.9",
@@ -43,6 +43,6 @@
   "pre-commit": [
     "pre-commit-msg",
     "lint",
-    "test"
+    "pre-commit-test"
   ]
 }
