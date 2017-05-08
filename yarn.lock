@@ -355,6 +355,10 @@ coffee-script@1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/coffee-script/-/coffee-script-1.6.3.tgz#6355d32cf1b04cdff6b484e5e711782b2f0c39be"
 
+coffeescript@^1.12.5:
+  version "1.12.5"
+  resolved "https://registry.yarnpkg.com/coffeescript/-/coffeescript-1.12.5.tgz#488a3a29cfc8c591b5e3ea3d7165f5a505ca7a5c"
+
 colors@1.0.x:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.0.3.tgz#0433f44d809680fdeb60ed260f1b0c262e82a40b"
